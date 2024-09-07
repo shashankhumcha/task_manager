@@ -49,12 +49,14 @@ const ViewDetails = () => {
   }
 
   return (
-    <div className="view-details">
-      <h2>Task Details</h2>
-      <p><strong>Title:</strong> {task.title}</p>
-      <p><strong>Description:</strong> {task.description}</p>
-      <p><strong>Created at:</strong> {new Date(task.createdAt).toLocaleString()}</p>
-      <button onClick={() => navigate('/tasks')}>Close</button>
+    <div className="view-details-container">
+      <div className="view-details-content">
+        <h2>Task Details</h2>
+        <p><strong>Title:</strong> {task.title}</p>
+        <p><strong>Description:</strong> {task.description}</p>
+        <p><strong>Created at:</strong> {new Date(task.createdAt).toLocaleString()}</p>
+        <button onClick={() => navigate('/tasks')}>Close</button>
+      </div>
     </div>
   );
 };

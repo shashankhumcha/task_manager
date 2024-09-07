@@ -1,14 +1,6 @@
-const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 5000;
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-app.use(express.json());
 
-// Example API route
-app.get('/api', (req, res) => {
-  res.send('API endpoint is working!');
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+ReactDOM.render(<App />, document.getElementById('root'));

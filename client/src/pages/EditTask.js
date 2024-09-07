@@ -58,7 +58,7 @@ const EditTask = () => {
       console.error('Error updating task:', error);
       if (error.response) {
         if (error.response.status === 401) {
-          navigate('/login'); // Redirect to login if unauthorized
+          navigate('/login'); 
         }
         toast.error(`Error: ${error.response.data.message || 'Error updating task. Please try again.'}`);
       } else {
@@ -76,33 +76,37 @@ const EditTask = () => {
   }
 
   return (
-    <div className="edit-task">
-      <h2>Edit Task</h2>
-      <input
-        type="text"
-        name="title"
-        value={task.title}
-        onChange={handleChange}
-        placeholder="Title"
-      />
-      <textarea
-        name="description"
-        value={task.description}
-        onChange={handleChange}
-        placeholder="Description"
-      />
-      <select
-        name="status"
-        value={task.status}
-        onChange={handleChange}
-      >
-        <option value="TODO">TODO</option>
-        <option value="IN_PROGRESS">IN PROGRESS</option>
-        <option value="DONE">DONE</option>
-      </select>
-      <button onClick={handleSave}>Save</button>
-      <button onClick={handleCancel}>Cancel</button>
-      <ToastContainer />
+    <div className="edit-task-container">
+      <div className="edit-task-form">
+        <h2>Edit Task</h2>
+        <input
+          type="text"
+          name="title"
+          value={task.title}
+          onChange={handleChange}
+          placeholder="Title"
+        />
+        <textarea
+          name="description"
+          value={task.description}
+          onChange={handleChange}
+          placeholder="Description"
+        />
+        <select
+          name="status"
+          value={task.status}
+          onChange={handleChange}
+        >
+          <option value="TODO">TODO</option>
+          <option value="IN_PROGRESS">IN PROGRESS</option>
+          <option value="DONE">DONE</option>
+        </select>
+        <div className="button-group">
+          <button className="save-button" onClick={handleSave}>Save</button>
+          <button className="cancel-button" onClick={handleCancel}>Cancel</button>
+        </div>
+        <ToastContainer />
+      </div>
     </div>
   );
 };

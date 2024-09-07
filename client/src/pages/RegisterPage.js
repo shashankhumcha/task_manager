@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { GoogleLogin } from '@react-oauth/google';
 import './RegisterPage.css';
@@ -30,7 +30,7 @@ const RegisterPage = () => {
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         alert('Registration successful! You are now logged in.');
-        navigate('/tasks'); // Redirect to TaskPage
+        navigate('/tasks'); 
       } else {
         alert('Registration failed');
       }
@@ -45,7 +45,7 @@ const RegisterPage = () => {
       const result = await axios.post('http://localhost:5000/api/auth/google', { tokenId: response.credential });
       if (result.data.token) {
         localStorage.setItem('token', result.data.token);
-        navigate('/tasks'); // Redirect to TaskPage
+        navigate('/tasks');
       } else {
         alert('Google signup failed: No token received');
       }
@@ -62,51 +62,57 @@ const RegisterPage = () => {
 
   return (
     <div className="register-container">
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit} className="register-form">
-        <input
-          type="text"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          placeholder="First Name"
-          required
-        />
-        <input
-          type="text"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          placeholder="Last Name"
-          required
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          placeholder="Confirm Password"
-          required
-        />
-        <button type="submit">Signup</button>
-        <GoogleLogin
-          onSuccess={handleGoogleSuccess}
-          onError={handleGoogleFailure}
-        />
-      </form>
-      <div className="login-link">
-        <span>Already have an account? <a href="/login">Login</a></span>
+      <header>
+        <Link to="/login" className="login-button">Login</Link>
+        <Link to="/register" className="signup-button">Signup</Link>
+      </header>
+      <div className="register-form-container">
+        <h2>Signup</h2>
+        <form onSubmit={handleSubmit} className="register-form">
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="First Name"
+            required
+          />
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Last Name"
+            required
+          />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            required
+          />
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            placeholder="Confirm Password"
+            required
+          />
+          <button type="submit">Signup</button>
+          <GoogleLogin
+            onSuccess={handleGoogleSuccess}
+            onError={handleGoogleFailure}
+          />
+          <p className="login-link-inside-form">
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
+        </form>
       </div>
     </div>
   );

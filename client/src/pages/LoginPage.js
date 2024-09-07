@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import { GoogleLogin } from '@react-oauth/google'; // Ensure this import is correct
+import { GoogleLogin } from '@react-oauth/google';
 import './LoginPage.css';
 
 const LoginPage = () => {
@@ -16,7 +16,7 @@ const LoginPage = () => {
 
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
-        navigate('/tasks'); // Navigate to TaskPage on successful login
+        navigate('/tasks');
       } else {
         alert('Login failed: Incorrect credentials');
       }
@@ -30,7 +30,7 @@ const LoginPage = () => {
     try {
       const result = await axios.post('http://localhost:5000/api/auth/google', { tokenId: response.credential });
       localStorage.setItem('token', result.data.token);
-      navigate('/tasks'); // Navigate to TaskPage on successful Google login
+      navigate('/tasks');
     } catch (error) {
       console.error('Google login failed', error);
       alert('Google login failed');
@@ -42,6 +42,8 @@ const LoginPage = () => {
     alert('Google login failed');
   };
 
+  
+
   return (
     <div className="login-page">
       <header className="header">
@@ -49,8 +51,8 @@ const LoginPage = () => {
         <Link to="/register" className="signup-button">Signup</Link>
       </header>
       <div className="login-form-container">
+        <h2 className="login-form-header">Login</h2>
         <form onSubmit={handleSubmit} className="login-form">
-          <h2>Login</h2>
           <input
             type="email"
             value={email}
@@ -73,6 +75,7 @@ const LoginPage = () => {
             onError={handleGoogleFailure}
             logoAlignment="left"
           />
+          
           <p>
             Don't have an account? <Link to="/register">Signup</Link>
           </p>

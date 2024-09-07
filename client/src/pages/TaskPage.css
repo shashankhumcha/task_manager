@@ -1,3 +1,4 @@
+
 body, html {
   margin: 0;
   padding: 0;
@@ -18,7 +19,6 @@ body, html {
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: #1976d2;
   padding: 10px;
@@ -63,6 +63,10 @@ body, html {
   opacity: 0.8;
 }
 
+.add-task-container {
+  margin: 20px;
+}
+
 .search-sort {
   display: flex;
   justify-content: space-between;
@@ -70,7 +74,7 @@ body, html {
   padding: 10px;
   background-color: #ffffff;
   box-sizing: border-box;
-  margin-top: 60px; 
+  margin: 0 10px;
 }
 
 .search-sort input[type="text"] {
@@ -89,7 +93,7 @@ body, html {
 
 .task-columns {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-grow: 1;
   padding: 20px;
   box-sizing: border-box;
@@ -122,6 +126,7 @@ body, html {
   margin-bottom: 15px;
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  cursor: move;
   min-height: 50px;
 }
 
@@ -136,25 +141,21 @@ body, html {
 }
 
 .task-actions button {
-  background-color: #1976d2;
   color: #fff;
   border: none;
   border-radius: 4px;
   padding: 8px 12px;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  background-color: #1976d2;
+}
+
+.delete-button {
+  background-color: red !important;
 }
 
 .task-actions button:hover {
   opacity: 0.8;
-}
-
-.task-actions button.delete {
-  background-color: #f44336;
-}
-
-.task-actions button.edit {
-  background-color: #ff9800;
 }
 
 @media (max-width: 768px) {

@@ -1,73 +1,76 @@
-/* EditTask.css */
+.edit-task-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
 
-.edit-task {
+.edit-task-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh; /* Full height to center vertically */
-  background-color: #f4f4f9;
-  padding: 20px;
 }
 
-.edit-task h2 {
+.edit-task-form h2 {
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 28px;
   color: #333;
 }
 
-.edit-task input,
-.edit-task textarea,
-.edit-task select {
+.edit-task-form input,
+.edit-task-form textarea,
+.edit-task-form select {
   width: 100%;
-  max-width: 400px; /* Limit the width of form fields */
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
   font-size: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: border-color 0.3s;
 }
 
-.edit-task input:focus,
-.edit-task textarea:focus,
-.edit-task select:focus {
-  border-color: #007bff;
-  outline: none;
+.edit-task-form textarea {
+  resize: none;
+  height: 120px;
 }
 
-.edit-task textarea {
-  height: 100px; /* Height for the textarea */
-  resize: vertical; /* Allow resizing vertically only */
-}
-
-.edit-task button {
+.button-group {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-  max-width: 400px; /* Match width with form fields */
-  padding: 10px;
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
+}
+
+.save-button {
   background-color: #007bff;
-  color: #fff;
-  font-size: 16px;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 16px;
+  width: 48%;
 }
 
-.edit-task button:hover {
+.save-button:hover {
   background-color: #0056b3;
 }
 
-.edit-task button:nth-of-type(2) {
-  background-color: #6c757d; /* Different color for cancel button */
+.cancel-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 48%;
 }
 
-.edit-task button:nth-of-type(2):hover {
+.cancel-button:hover {
   background-color: #5a6268;
-}
-
-.toastify-container {
-  font-size: 14px;
 }

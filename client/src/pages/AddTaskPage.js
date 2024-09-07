@@ -14,7 +14,7 @@ const AddTask = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem('token'); // Get token from local storage
+      const token = localStorage.getItem('token'); 
       if (!token) {
         setErrorMessage('Authentication token not found. Please log in again.');
         return;
@@ -23,7 +23,7 @@ const AddTask = () => {
       const response = await axios.post(
         'http://localhost:5000/api/tasks',
         { title, description, status },
-        { headers: { Authorization: `Bearer ${token}` } } // Include token in headers
+        { headers: { Authorization: `Bearer ${token}` } } 
       );
       console.log('Response:', response);
       if (response.status === 201) {
