@@ -1,10 +1,7 @@
 const mysql = require('mysql2');
+const MYSQL_URL='mysql://root:lTuOnENVbEVYxJlKfOKIgMOgfRCUXtsd@mysql.railway.internal:3306/railway'
 const connection = mysql.createConnection({
-  host: process.env.MYSQLHOST,
-  user: process.env.MYSQLUSER,
-  password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQLDATABASE,
-  port: process.env.MYSQLPORT
+  MYSQL_URL
 });
 
 connection.connect((err) => {
